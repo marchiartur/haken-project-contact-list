@@ -1,0 +1,8 @@
+.header {
+  background-image: linear-gradient(19deg ,#fdfc47, #21D4FD);
+  height: 100px;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

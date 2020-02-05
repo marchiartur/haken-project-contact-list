@@ -1,0 +1,8 @@
+.footer {
+  background-color: gray;
+  height: 40px;
+  text-align: center;
+  color: #c3cabe;
+  padding: 30px 20px 50px 20px;
+  overflow: hidden;
+}

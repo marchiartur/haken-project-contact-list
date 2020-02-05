@@ -1,0 +1,46 @@
+.content {
+    height: 500px;
+    display: flex;
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+    padding: 20px 50px 20px 50px;
+    margin-bottom: 115px;
+    margin-top: auto;
+}
+
+.borderSchedule{
+    background-color: rgb(29, 28, 28);
+    height: 500px;
+    width: 600px;
+    border: 100px;
+    margin-top: 50px;
+    border-radius: 25px;
+}
+
+.titleSchedule{
+    color: black;
+    text-align: center;
+    justify-content: center;
+    margin-top: -40px;
+}
+
+.subTitleSchedule{
+    margin-top: 20px;
+    color: white;
+}
+
+.buttonNewContact{
+    margin-top: 20px;
+    margin-right: -30px;
+}
+
+.tableContacts{
+    background-color: white;
+    width: 500px;
+    border: black 50px;
+    border-radius: 15px;
+    height: 360px;
+    margin-top: 20px;
+    margin-left: 50px;
+}
