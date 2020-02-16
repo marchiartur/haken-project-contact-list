@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
-import { Row, Col, Button, Table, Icon, Divider, Typography, Modal, Form, Input } from 'antd';
+import { Row, Col, Button, Table, Icon, Divider, Typography, Modal, Form, Input, message } from 'antd';
 
 const { Title } = Typography;
 
@@ -15,15 +15,16 @@ export default function Agenda(){
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
 
-    // modal
-    const [visibleModalNewContact, setVisibleModalNewContact] = useState(false);
-    const [visibleModalEditContact, setVisibleModalEditContact] = useState(false);
-
     // editContact
     const [editName, setEditName] = useState('');
     const [editPhone, setEditPhone] = useState('');
     const [editEmail, setEditEmail] = useState('');
     const [editKey, setEditKey] = useState(0);
+
+    // modals
+    const [visibleModalNewContact, setVisibleModalNewContact] = useState(false);
+    const [visibleModalEditContact, setVisibleModalEditContact] = useState(false);
+
 
     const columns = [
         {
@@ -116,21 +117,29 @@ export default function Agenda(){
 
     const editContact = (e) => {
         e.preventDefault();
-        confirm({
-            title: `Editar os dados do contato "${contacts[editKey - 1].name}"`,
-            okType: "primary",
-            okText: "Editar",
-            cancelText: "Cancelar",
-            onOk() {
-                contacts[editKey - 1] = {
-                    name: editName,
-                    phone: editPhone,
-                    email: editEmail,
-                    key: editKey
-                }
-                hideModalEditContact();          
-            },
-        })
+        console.log(editEmail, editName, editPhone);
+        if(editEmail.length === 0 || editName.length === 0 || editPhone.length === 0){
+            message.error('Todos os campos são obrigatórios.');
+            return;       
+        }else {
+            confirm({
+                title: `Editar os dados do contato "${contacts[editKey - 1].name}"`,
+                okType: "primary",
+                okText: "Editar",
+                cancelText: "Cancelar",
+                onOk() {
+                    contacts[editKey - 1] = {
+                        name: editName,
+                        phone: editPhone,
+                        email: editEmail,
+                        key: editKey
+                    }
+                    hideModalEditContact();          
+                },
+            })
+        }
+
+        
     };
 
     const showModalDeleteContact = (contact) => {
